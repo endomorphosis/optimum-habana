@@ -693,6 +693,48 @@ DEEPSPEED_HPU_ZERO3_SYNC_MARK_STEP_REQUIRED=1 LOWER_LIST=ops_bf16.txt python3 ..
 ```
 Default `peft_type` is `lora`, you could enable adalora or ia3 using `--peft_type adalora` or `--peft_type ia3`, or enable llama-adapter for llama model using `--peft_type llama-adapter`.
 
+#### Custom Files
+
+To run on your own training and validation files, use the following command:
+
+```bash
+python run_lora_clm.py \
+    --model_name_or_path bigcode/starcoder \
+    --train_file path_to_train_file \
+    --validation_file path_to_validation_file \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --do_train \
+    --do_eval \
+    --output_dir /tmp/test-lora-clm \
+    --bf16 \
+    --use_habana \
+    --use_lazy_mode \
+    --use_hpu_graphs_for_inference \
+    --dataset_concatenation \
+    --throughput_warmup_steps 3
+```
+
+The format of the jsonlines files (with extensions .json or .jsonl) is expected to be
+
+```json
+{"text": "<text>"}
+{"text": "<text>"}
+{"text": "<text>"}
+{"text": "<text>"}
+```
+
+The format of the text files (with extensions .text or .txt) is expected to be
+
+```json
+"<text>"
+"<text>"
+"<text>"
+"<text>"
+```
+
+> Note: When using both custom files i.e `--train_file` and `--validation_file`, all files are expected to be of the same type i.e json or text.
+
 ### Prompt/Prefix/P-tuning
 
 To run prompt tuning finetuning, you can use `run_prompt_tuning_clm.py`.
@@ -751,6 +793,52 @@ python3 ../text-generation/run_generation.py \
     --prompt "@SEPTA_SOCIAL Ok. Thanks. Label :"
 
 ```
+### Multitask Prompt/Poly seq2seq tuning
+
+To run multitask prompt seq2seq finetuning, you can use `run_multitask_prompt_tuning.py`.
+Here is a multi-device command example for [google/flan-t5-base](https://huggingface.co/google/flan-t5-base):
+```bash
+python3 ../gaudi_spawn.py --world_size 8 --use_mpi run_multitask_prompt_tuning.py \
+    --model_name_or_path google/flan-t5-base \
+    --do_train \
+    --report_to=none \
+    --num_train_epochs 3 \
+    --output_dir out_multi_peft \
+    --use_habana \
+    --use_lazy_mode \
+    --evaluation_strategy "steps" \
+    --eval_steps 500 \
+    --save_strategy "no" \
+    --learning_rate 1e-4  \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --use_hpu_graphs_for_inference \
+    --use_hpu_graphs_for_training \
+    --bf16
+```
+
+To run poly seq2seq finetuning, you can use `peft_poly_seq2seq_with_generate.py`.
+Here is a multi-device command example for [google/flan-t5-xl](https://huggingface.co/google/flan-t5-xl):
+```bash
+python3 ../gaudi_spawn.py --world_size 8 --use_mpi peft_poly_seq2seq_with_generate.py \
+    --model_name_or_path google/flan-t5-xl \
+    --do_train \
+    --report_to=none \
+    --num_train_epochs 1 \
+    --output_dir out_poly \
+    --use_habana \
+    --use_lazy_mode \
+    --evaluation_strategy "epoch" \
+    --logging_strategy "epoch" \
+    --save_strategy "no" \
+    --learning_rate 5e-5  \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 4 \
+    --bf16 \
+    --use_hpu_graphs_for_inference \
+    --use_hpu_graphs_for_training
+```
+
 
 ## Streaming
 

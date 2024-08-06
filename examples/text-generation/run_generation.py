@@ -103,6 +103,18 @@ def setup_parser(parser):
         help="Number of beams used for beam search generation. 1 means greedy search will be performed.",
     )
     parser.add_argument(
+        "--top_k",
+        default=None,
+        type=int,
+        help="Size of candidate set used for re-ranking in contrastive search. top_k > 1 enables contrastive search.",
+    )
+    parser.add_argument(
+        "--penalty_alpha",
+        default=None,
+        type=float,
+        help="Degeneration penalty for contrastive search. penalty_alpha > 0 enables contrastive search.",
+    )
+    parser.add_argument(
         "--trim_logits",
         action="store_true",
         help="Calculate logits only for the last token to save memory in the first step.",
@@ -287,6 +299,14 @@ def setup_parser(parser):
         action="store_true",
         help="Whether to trust the execution of code from datasets/models defined on the Hub. This option should only be set to `True` for repositories you trust and in which you have read the code, as it will execute code present on the Hub on your local machine.",
     )
+    parser.add_argument(
+        "--parallel_strategy",
+        type=str,
+        choices=["tp", "none"],  # Add other strategies as needed
+        default="none",
+        help="Run multi card with the specified parallel strategy. Choices are 'tp' for Tensor Parallel Strategy or 'none'.",
+    )
+
     args = parser.parse_args()
 
     if args.torch_compile:

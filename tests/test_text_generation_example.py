@@ -41,6 +41,7 @@ if os.environ.get("GAUDI2_CI", "0") == "1":
             ("Qwen/Qwen1.5-7B", 4, False, 518.894516133132),
             ("google/gemma-7b", 1, False, 109.70751574382221),
             ("state-spaces/mamba-130m-hf", 1536, False, 8600),
+            ("Deci/DeciLM-7B", 1, False, 120),
         ],
         "fp8": [
             ("tiiuae/falcon-180B", 4, 950, True, 128, 128, 2506.68),
@@ -71,6 +72,12 @@ if os.environ.get("GAUDI2_CI", "0") == "1":
         "torch_compile_distributed": [
             ("meta-llama/Llama-2-7b-hf", 39.72973199515235),
         ],
+        "distributed_tp": [
+            ("meta-llama/Llama-2-7b-hf", 1345.2369318328463),
+        ],
+        "contrastive_search": [
+            ("gpt2-xl", 1, False, 51.61471298016438),
+        ],
     }
 else:
     # Gaudi1 CI baselines
@@ -80,7 +87,7 @@ else:
             ("gpt2-xl", 1, False, 142.11481820425706),
             # TODO: fix OPT 6.7B
             # ("facebook/opt-6.7b", 0.0),
-            ("EleutherAI/gpt-j-6b", 1, False, 50.79545107991805),
+            ("EleutherAI/gpt-j-6b", 1, True, 156.2893125740893),
             ("meta-llama/Llama-2-7b-hf", 1, True, 44.39616259946937),
             ("tiiuae/falcon-7b", 1, True, 44.82870145718665),
             ("bigcode/starcoder", 1, False, 15.945023767901013),
@@ -101,6 +108,10 @@ else:
         ],
         "torch_compile": [],
         "torch_compile_distributed": [],
+        "distributed_tp": [],
+        "contrastive_search": [
+            ("gpt2-xl", 1, False, 34.48141280163397),
+        ],
     }
 
 
@@ -116,6 +127,8 @@ def _test_text_generation(
     fp8: bool = False,
     max_input_tokens: int = 0,
     max_output_tokens: int = 100,
+    parallel_strategy: str = None,
+    contrastive_search: bool = False,
 ):
     command = ["python3"]
     path_to_example_dir = Path(__file__).resolve().parent.parent / "examples"
@@ -125,6 +138,11 @@ def _test_text_generation(
         command += [
             f"{path_to_example_dir / 'gaudi_spawn.py'}",
             "--use_deepspeed",
+            f"--world_size {world_size}",
+        ]
+    elif parallel_strategy == "tp":
+        command += [
+            f"{path_to_example_dir / 'gaudi_spawn.py'}",
             f"--world_size {world_size}",
         ]
 
@@ -148,11 +166,14 @@ def _test_text_generation(
     if "starcoder2" in model_name.lower():
         command += ["--flash_attention_recompute"]
 
-    if reuse_cache or torch_compile:
+    if (reuse_cache or torch_compile) and not parallel_strategy == "tp":
         command += ["--reuse_cache"]
 
     if torch_compile:
         command += ["--torch_compile"]
+        if parallel_strategy == "tp":
+            command += ["--use_flash_attention"]
+            command += ["--flash_attention_recompute"]
         env_variables["PT_ENABLE_INT64_SUPPORT"] = "1"
         env_variables["PT_HPU_LAZY_MODE"] = "0"
     else:
@@ -162,6 +183,9 @@ def _test_text_generation(
 
     if not deepspeed:
         command.append("--bf16")
+
+    if contrastive_search:
+        command += ["--top_k 4", "--penalty_alpha 0.5"]
 
     if fp8:
         if "--trim_logits" not in command:
@@ -193,6 +217,10 @@ def _test_text_generation(
         command += [
             f"--max_input_tokens {max_input_tokens}",
             "--limit_hpu_graphs",
+        ]
+    if parallel_strategy is not None:
+        command += [
+            f"--parallel_strategy={parallel_strategy}",
         ]
 
     with TemporaryDirectory() as tmp_dir:
@@ -292,6 +320,28 @@ def test_text_generation_torch_compile(model_name: str, baseline: float, token: 
 def test_text_generation_torch_compile_distributed(model_name: str, baseline: float, token: str):
     world_size = 8
     _test_text_generation(model_name, baseline, token, deepspeed=True, world_size=world_size, torch_compile=True)
+
+
+@pytest.mark.parametrize("model_name, baseline", MODELS_TO_TEST["distributed_tp"])
+def test_text_generation_distributed_tp(model_name: str, baseline: float, token: str):
+    world_size = 8
+    _test_text_generation(
+        model_name,
+        baseline,
+        token,
+        batch_size=64,
+        max_input_tokens=128,
+        world_size=world_size,
+        torch_compile=True,
+        parallel_strategy="tp",
+    )
+
+
+@pytest.mark.parametrize("model_name, batch_size, reuse_cache, baseline", MODELS_TO_TEST["contrastive_search"])
+def test_text_generation_contrastive_search(
+    model_name: str, baseline: float, batch_size: int, reuse_cache: bool, token: str
+):
+    _test_text_generation(model_name, baseline, token, batch_size, reuse_cache, contrastive_search=True)
 
 
 class TextGenPipeline(TestCase):
