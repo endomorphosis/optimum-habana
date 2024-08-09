@@ -1,7 +1,8 @@
 
+
  USE_INC=0  QUANT_CONFIG=./quantization_config/maxabs_measure.json python ../gaudi_spawn.py \
 --use_deepspeed --world_size 2 run_lm_eval.py \
--o llama_3-1_70b_bs1_measure.txt \
+-o llama_3-1_8b_bs1_measure.txt \
 --model_name_or_path meta-llama/Meta-Llama-3.1-8B \
 --attn_softmax_bf16 \
 --use_hpu_graphs \
@@ -75,7 +76,7 @@ git push
 
  USE_INC=0  QUANT_CONFIG=./quantization_config/maxabs_measure.json python ../gaudi_spawn.py \
 --use_deepspeed --world_size 2 run_lm_eval.py \
--o llama_3-1_70b_bs1_measure.txt \
+-o llama_3-1_70b_instruct_bs1_measure.txt \
 --model_name_or_path meta-llama/Meta-Llama-3.1-70B-Instruct \
 --attn_softmax_bf16 \
 --use_hpu_graphs \
@@ -92,7 +93,7 @@ git push
 
  USE_INC=0  QUANT_CONFIG=./quantization_config/maxabs_quant.json python ../gaudi_spawn.py \
 --use_deepspeed --world_size 2 run_lm_eval.py \
--o llama_3-1_8b_bs1_quant.txt \
+-o llama_3-1_70b_instruct_bs1_quant.txt \
 --model_name_or_path meta-llama/Meta-Llama-3.1-70B-Instruct \
 --attn_softmax_bf16 \
 --use_hpu_graphs \

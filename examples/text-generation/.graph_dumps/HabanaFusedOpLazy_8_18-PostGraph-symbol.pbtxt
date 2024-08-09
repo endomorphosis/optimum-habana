@@ -1,10 +1,10 @@
 node {
-  name: "tensor_0_/placeholder/0"
+  name: "tensor_0_odule/placeholder/0"
   op: "Placeholder"
   attr {
     key: "dtype"
     value {
-      type: DT_INVALID
+      type: DT_BFLOAT16
     }
   }
   attr {
@@ -12,10 +12,10 @@ node {
     value {
       shape {
         dim {
-          size: 14336
+          size: 128256
         }
         dim {
-          size: 4096
+          size: 189
         }
         dim {
           size: 1
@@ -32,14 +32,14 @@ node {
   attr {
     key: "synDataType"
     value {
-      s: "hfloat8"
+      s: "bf16"
     }
   }
 }
 node {
-  name: "/transpose/617_0"
-  op: "DmaTranspose"
-  input: "tensor_0_/placeholder/0"
+  name: "module/cast_bf16_to_f32/756_reshape_TPC_out1"
+  op: "StaticReshape"
+  input: "tensor_0_odule/placeholder/0"
   attr {
     key: "Bundle_idx"
     value {
@@ -61,136 +61,20 @@ node {
   attr {
     key: "inputTensor:0"
     value {
-      s: "tensor_0_/placeholder/0  |  Sizes = [4096,14336]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [58720256, 14336, 1]  |  data = 0, sizeInBytes = 58720256  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x40000000000  |  userMemorySection(type=Persistent, id=4)  |  "
+      s: "tensor_0_odule/placeholder/0  |  Sizes = [1,189,128256]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [48480768, 48480768, 256512, 2]  |  data = 0, sizeInBytes = 48480768  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x40000000000  |  userMemorySection(type=Persistent, id=4)  |  "
     }
   }
   attr {
     key: "outputTensor:0"
     value {
-      s: "tensor_2_id_49211_aten__clone  |  Sizes = [14336,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [58720256, 4096, 1]  |  data = 0, sizeInBytes = 58720256  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x50000000000  |  userMemorySection(type=Persistent, id=5)  |  "
+      s: "_reshaped_48148  |  Sizes = [1,189378,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [48480768, 48480768, 256, 2]  |  data = 0, sizeInBytes = 48480768  |  isAliased = tensor_0_odule/placeholder/0, type = alias, offset: 0  |  location = in DRAM  |  "
     }
   }
 }
 node {
-  name: "tensor_2_id_49211_aten__clone"
-  op: "OutputTensor"
-  input: "/transpose/617_0"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INVALID
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-        dim {
-          size: 4096
-        }
-        dim {
-          size: 14336
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-      }
-    }
-  }
-  attr {
-    key: "synDataType"
-    value {
-      s: "hfloat8"
-    }
-  }
-}
-node {
-  name: "tensor_3_/placeholder/0"
-  op: "Placeholder"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_BFLOAT16
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-        dim {
-          size: 4096
-        }
-        dim {
-          size: 4096
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-      }
-    }
-  }
-  attr {
-    key: "synDataType"
-    value {
-      s: "bf16"
-    }
-  }
-}
-node {
-  name: "tensor_4_/placeholder/1"
-  op: "Placeholder"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_BFLOAT16
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-        dim {
-          size: 1
-        }
-      }
-    }
-  }
-  attr {
-    key: "synDataType"
-    value {
-      s: "bf16"
-    }
-  }
-}
-node {
-  name: "fusedTPCNode_18_0"
-  op: "fused_kernel_0x6B0158F5_F_bf16"
-  input: "tensor_3_/placeholder/0"
-  input: "tensor_4_/placeholder/1"
+  name: "module/cast_bf16_to_f32/756_optimized"
+  op: "cast_bf16_to_f32"
+  input: "module/cast_bf16_to_f32/756_reshape_TPC_out1"
   attr {
     key: "Bundle_idx"
     value {
@@ -212,30 +96,59 @@ node {
   attr {
     key: "inputTensor:0"
     value {
-      s: "tensor_3_/placeholder/0  |  Sizes = [4096,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [33554432, 8192, 2]  |  data = 0, sizeInBytes = 33554432  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x60000000000  |  userMemorySection(type=Persistent, id=6)  |  "
-    }
-  }
-  attr {
-    key: "inputTensor:1"
-    value {
-      s: "tensor_4_/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0, sizeInBytes = 2  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x70000000000  |  userMemorySection(type=Persistent, id=7)  |  "
+      s: "_reshaped_48148  |  Sizes = [1,189378,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [48480768, 48480768, 256, 2]  |  data = 0, sizeInBytes = 48480768  |  isAliased = tensor_0_odule/placeholder/0, type = alias, offset: 0  |  location = in DRAM  |  "
     }
   }
   attr {
     key: "outputTensor:0"
     value {
-      s: "tensor_7  |  Sizes = [4096,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16777216, 4096, 1]  |  data = 0, sizeInBytes = 16777216  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x90000000000  |  userMemorySection(type=Persistent, id=9)  |  "
+      s: "_reshaped_48149  |  Sizes = [1,189378,128]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [96961536, 96961536, 512, 4]  |  data = 0, sizeInBytes = 96961536  |  isAliased = tensor_2, type = alias, offset: 0  |  location = in DRAM  |  "
     }
   }
 }
 node {
-  name: "tensor_7"
+  name: "module/cast_bf16_to_f32/756_reshape_TPC_out0"
+  op: "StaticReshape"
+  input: "module/cast_bf16_to_f32/756_optimized"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "2"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "_reshaped_48149  |  Sizes = [1,189378,128]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [96961536, 96961536, 512, 4]  |  data = 0, sizeInBytes = 96961536  |  isAliased = tensor_2, type = alias, offset: 0  |  location = in DRAM  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_2  |  Sizes = [1,189,128256]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [96961536, 96961536, 513024, 4]  |  data = 0, sizeInBytes = 96961536  |  isPersistent  |  location = in DRAM  |  dramOffset = 0x60000000000  |  userMemorySection(type=Persistent, id=6)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_2"
   op: "OutputTensor"
-  input: "fusedTPCNode_18_0"
+  input: "module/cast_bf16_to_f32/756_reshape_TPC_out0"
   attr {
     key: "dtype"
     value {
-      type: DT_INVALID
+      type: DT_FLOAT
     }
   }
   attr {
@@ -243,10 +156,10 @@ node {
     value {
       shape {
         dim {
-          size: 4096
+          size: 128256
         }
         dim {
-          size: 4096
+          size: 189
         }
         dim {
           size: 1
@@ -263,7 +176,7 @@ node {
   attr {
     key: "synDataType"
     value {
-      s: "hfloat8"
+      s: "float32"
     }
   }
 }
