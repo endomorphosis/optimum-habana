@@ -306,7 +306,7 @@ https://docs.habana.ai/en/latest/PyTorch/Inference_on_PyTorch/Inference_Using_FP
 
 Here is an example to measure the tensor quantization statistics on LLama2-70b:
 ```bash
-QUANT_CONFIG=./quantization_config/maxabs_measure.json python ../gaudi_spawn.py \
+USE_INC=0 QUANT_CONFIG=./quantization_config/maxabs_measure.json python ../gaudi_spawn.py \
 --use_deepspeed --world_size 8 run_lm_eval.py \
 -o acc_70b_bs1_measure.txt \
 --model_name_or_path meta-llama/Llama-2-70b-hf \
@@ -324,7 +324,7 @@ QUANT_CONFIG=./quantization_config/maxabs_measure.json python ../gaudi_spawn.py 
 
 Here is an example to quantize the model based on previous measurements for LLama2-70b:
 ```bash
-QUANT_CONFIG=./quantization_config/maxabs_quant.json python ../gaudi_spawn.py \
+USE_INC=0 QUANT_CONFIG=./quantization_config/maxabs_quant.json python ../gaudi_spawn.py \
 --use_deepspeed --world_size 8 run_lm_eval.py \
 -o acc_70b_bs1_quant.txt \
 --model_name_or_path meta-llama/Llama-2-70b-hf \

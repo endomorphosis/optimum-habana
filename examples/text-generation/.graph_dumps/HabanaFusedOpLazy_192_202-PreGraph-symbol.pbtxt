@@ -1,0 +1,5007 @@
+node {
+  name: "tensor_4_odule/model/15/placeholder/0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "int32"
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12634"
+  op: "ExpandDims"
+  input: "tensor_4_odule/model/15/placeholder/0"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "0"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_4_odule/model/15/placeholder/0  |  Sizes = [16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 4]  |  data = 0, sizeInBytes = 64  |  isPersistent  |  userMemorySection(type=Persistent, id=5)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_5_id_119786_module/model/15/aten__unsqueeze/1  |  Sizes = [1,16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+}
+node {
+  name: "tensor_71_odule/model/15/fused_scaled_dot_product_attention/placeholder/0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 16
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12664"
+  op: "ExpandDims"
+  input: "tensor_71_odule/model/15/fused_scaled_dot_product_attention/placeholder/0"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "1"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_71_odule/model/15/fused_scaled_dot_product_attention/placeholder/0  |  Sizes = [16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 32, 2]  |  data = 0, sizeInBytes = 512  |  isPersistent  |  userMemorySection(type=Persistent, id=28)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_72_id_119787_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12665"
+  op: "ExpandDims"
+  input: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12664"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "2"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_72_id_119787_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_73_id_119788_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12674"
+  op: "ExpandDims"
+  input: "tensor_4_odule/model/15/placeholder/0"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "3"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_4_odule/model/15/placeholder/0  |  Sizes = [16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 4]  |  data = 0, sizeInBytes = 64  |  isPersistent  |  userMemorySection(type=Persistent, id=5)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_88_id_119786_module/model/15/aten__unsqueeze  |  Sizes = [1,16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+}
+node {
+  name: "tensor_21_odule/model/15/input_layernorm/placeholder/0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_22_odule/model/15/input_layernorm/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  op: "rms_norm_ex_fwd_bf16"
+  input: "tensor_21_odule/model/15/input_layernorm/placeholder/0"
+  input: "tensor_22_odule/model/15/input_layernorm/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "4"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_21_odule/model/15/input_layernorm/placeholder/0  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_22_odule/model/15/input_layernorm/placeholder/1  |  Sizes = [4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [8192, 2]  |  data = 0, sizeInBytes = 8192  |  isPersistent  |  userMemorySection(type=Persistent, id=10)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_25  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:1"
+    value {
+      s: "tensor_26  |  Sizes = [1,16,1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+}
+node {
+  name: "tensor_26"
+  op: "OutputTensor"
+  input: "module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_27_odule/model/15/k_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/k_proj/quant_input_0/convert_to_fp8_bf16/12648"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  input: "tensor_27_odule/model/15/k_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "5"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_25  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_27_odule/model/15/k_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564737382600, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=11)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_30  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_6_odule/model/15/rotary_emb/placeholder/0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 131072
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/slice/12635"
+  op: "Slice"
+  input: "tensor_6_odule/model/15/rotary_emb/placeholder/0"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "6"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_6_odule/model/15/rotary_emb/placeholder/0  |  Sizes = [131072,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [33554432, 256, 2]  |  data = 0, sizeInBytes = 33554432  |  isPersistent  |  userMemorySection(type=Persistent, id=6)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_7_id_119849_module/model/15/rotary_emb/aten__slice  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "tensor_8_odule/model/15/rotary_emb/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/cast_f32_to_bf16/12636"
+  op: "cast_f32_to_bf16"
+  input: "tensor_8_odule/model/15/rotary_emb/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "7"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_8_odule/model/15/rotary_emb/placeholder/1  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0, sizeInBytes = 4  |  isPersistent  |  userMemorySection(type=Persistent, id=7)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_10  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0, sizeInBytes = 2  |  "
+    }
+  }
+}
+node {
+  name: "tensor_14_odule/model/15/rotary_emb/placeholder/0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 131072
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/slice/12641"
+  op: "Slice"
+  input: "tensor_14_odule/model/15/rotary_emb/placeholder/0"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "8"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_14_odule/model/15/rotary_emb/placeholder/0  |  Sizes = [131072,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [33554432, 256, 2]  |  data = 0, sizeInBytes = 33554432  |  isPersistent  |  userMemorySection(type=Persistent, id=8)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_15_id_119853_module/model/15/rotary_emb/aten__slice  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/cast_f32_to_bf16/12642"
+  op: "cast_f32_to_bf16"
+  input: "tensor_8_odule/model/15/rotary_emb/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "9"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_8_odule/model/15/rotary_emb/placeholder/1  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0, sizeInBytes = 4  |  isPersistent  |  userMemorySection(type=Persistent, id=7)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_17  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0, sizeInBytes = 2  |  "
+    }
+  }
+}
+node {
+  name: "tensor_31_odule/model/15/k_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1024
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_32_odule/model/15/k_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_33_odule/model/15/k_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/k_proj/fp8_gemm_bf16/12649"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/k_proj/quant_input_0/convert_to_fp8_bf16/12648"
+  input: "tensor_31_odule/model/15/k_proj/placeholder/1"
+  input: "tensor_32_odule/model/15/k_proj/placeholder/2"
+  input: "tensor_33_odule/model/15/k_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "10"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_30  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_31_odule/model/15/k_proj/placeholder/1  |  Sizes = [4096,1024]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [4194304, 1024, 1]  |  data = 0, sizeInBytes = 4194304  |  isPersistent  |  userMemorySection(type=Persistent, id=12)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_32_odule/model/15/k_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x5647373833e0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=13)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_33_odule/model/15/k_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x5647373833f0, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=14)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_35  |  Sizes = [1,16,1024]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/reshape/12650"
+  op: "Reshape"
+  input: "module/model/15/k_proj/fp8_gemm_bf16/12649"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "11"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_35  |  Sizes = [1,16,1024]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_36_id_119841_module/model/15/aten__view  |  Sizes = [1,16,8,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "tensor_52_odule/model/15/v_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/v_proj/quant_input_0/convert_to_fp8_bf16/12657"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  input: "tensor_52_odule/model/15/v_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "12"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_25  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_52_odule/model/15/v_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736b75610, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=20)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_55  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/mult_fwd_bf16/12637"
+  op: "mult_fwd_bf16"
+  input: "module/model/15/rotary_emb/slice/12635"
+  input: "module/model/15/rotary_emb/cast_f32_to_bf16/12636"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "13"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_7_id_119849_module/model/15/rotary_emb/aten__slice  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_10  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0, sizeInBytes = 2  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_9_id_119851_module/model/15/rotary_emb/aten__mul  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12638"
+  op: "ExpandDims"
+  input: "module/model/15/rotary_emb/mult_fwd_bf16/12637"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "14"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_9_id_119851_module/model/15/rotary_emb/aten__mul  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_11_id_119873_module/model/15/aten__unsqueeze  |  Sizes = [1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12639"
+  op: "ExpandDims"
+  input: "module/model/15/expand_dims/12638"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "15"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_11_id_119873_module/model/15/aten__unsqueeze  |  Sizes = [1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_12_id_119875_module/model/15/aten__unsqueeze  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/identity/12640"
+  op: "Identity"
+  input: "module/model/15/expand_dims/12639"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "16"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_12_id_119875_module/model/15/aten__unsqueeze  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_13_id_119877_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_emb/mult_fwd_bf16/12643"
+  op: "mult_fwd_bf16"
+  input: "module/model/15/rotary_emb/slice/12641"
+  input: "module/model/15/rotary_emb/cast_f32_to_bf16/12642"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "17"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_15_id_119853_module/model/15/rotary_emb/aten__slice  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_17  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0, sizeInBytes = 2  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_16_id_119855_module/model/15/rotary_emb/aten__mul  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12644"
+  op: "ExpandDims"
+  input: "module/model/15/rotary_emb/mult_fwd_bf16/12643"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "18"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_16_id_119855_module/model/15/rotary_emb/aten__mul  |  Sizes = [16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_18_id_119879_module/model/15/aten__unsqueeze  |  Sizes = [1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/expand_dims/12645"
+  op: "ExpandDims"
+  input: "module/model/15/expand_dims/12644"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "19"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_18_id_119879_module/model/15/aten__unsqueeze  |  Sizes = [1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_19_id_119881_module/model/15/aten__unsqueeze  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/identity/12646"
+  op: "Identity"
+  input: "module/model/15/expand_dims/12645"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "20"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_19_id_119881_module/model/15/aten__unsqueeze  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_20_id_119883_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/transpose/12651"
+  op: "Transpose"
+  input: "module/model/15/reshape/12650"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "21"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Parameters"
+    value {
+      s: "permutation: (0,2,1,3)"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_36_id_119841_module/model/15/aten__view  |  Sizes = [1,16,8,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_37_id_119843_module/model/15/aten__transpose  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "tensor_56_odule/model/15/v_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1024
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_57_odule/model/15/v_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_58_odule/model/15/v_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/v_proj/fp8_gemm_bf16/12658"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/v_proj/quant_input_0/convert_to_fp8_bf16/12657"
+  input: "tensor_56_odule/model/15/v_proj/placeholder/1"
+  input: "tensor_57_odule/model/15/v_proj/placeholder/2"
+  input: "tensor_58_odule/model/15/v_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "22"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_55  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_56_odule/model/15/v_proj/placeholder/1  |  Sizes = [4096,1024]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [4194304, 1024, 1]  |  data = 0, sizeInBytes = 4194304  |  isPersistent  |  userMemorySection(type=Persistent, id=21)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_57_odule/model/15/v_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d58ad8, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=22)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_58_odule/model/15/v_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736b75b90, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=23)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_60  |  Sizes = [1,16,1024]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_input_0/reshape/12659"
+  op: "Reshape"
+  input: "module/model/15/v_proj/fp8_gemm_bf16/12658"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "23"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_60  |  Sizes = [1,16,1024]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_61_id_119845_module/model/15/quant_input_0/aten__view  |  Sizes = [1,16,8,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "tensor_89_odule/model/15/q_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/q_proj/quant_input_0/convert_to_fp8_bf16/12675"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  input: "tensor_89_odule/model/15/q_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "24"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_25  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_89_odule/model/15/q_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564737383d60, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=31)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_92  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_pos_embedding_fwd_bf16/12652"
+  op: "rotary_pos_embedding_fwd_bf16"
+  input: "module/model/15/transpose/12651"
+  input: "module/model/15/identity/12646"
+  input: "module/model/15/identity/12640"
+  input: "module/model/15/expand_dims/12634"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "25"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_37_id_119843_module/model/15/aten__transpose  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_20_id_119883_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_13_id_119877_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_5_id_119786_module/model/15/aten__unsqueeze/1  |  Sizes = [1,16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_39  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_input_0/transpose/12660"
+  op: "Transpose"
+  input: "module/model/15/quant_input_0/reshape/12659"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "26"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Parameters"
+    value {
+      s: "permutation: (0,2,1,3)"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_61_id_119845_module/model/15/quant_input_0/aten__view  |  Sizes = [1,16,8,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 2048, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_62_id_119847_module/model/15/quant_input_0/aten__transpose  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+}
+node {
+  name: "tensor_93_odule/model/15/q_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_94_odule/model/15/q_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_95_odule/model/15/q_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/q_proj/fp8_gemm_bf16/12676"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/q_proj/quant_input_0/convert_to_fp8_bf16/12675"
+  input: "tensor_93_odule/model/15/q_proj/placeholder/1"
+  input: "tensor_94_odule/model/15/q_proj/placeholder/2"
+  input: "tensor_95_odule/model/15/q_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "27"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_92  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_93_odule/model/15/q_proj/placeholder/1  |  Sizes = [4096,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16777216, 4096, 1]  |  data = 0, sizeInBytes = 16777216  |  isPersistent  |  userMemorySection(type=Persistent, id=32)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_94_odule/model/15/q_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564735a5aec0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=33)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_95_odule/model/15/q_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564737383f00, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=34)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_97  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/reshape/12677"
+  op: "Reshape"
+  input: "module/model/15/q_proj/fp8_gemm_bf16/12676"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "28"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_97  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_98_id_119837_module/model/15/aten__view  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "tensor_40_odule/model/15/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_input_0/convert_to_fp8_bf16/12653"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/rotary_pos_embedding_fwd_bf16/12652"
+  input: "tensor_40_odule/model/15/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "29"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_39  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_40_odule/model/15/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d59870, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=15)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_43  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "tensor_63_odule/model/15/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_input_0/convert_to_fp8_bf16/12661"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/quant_input_0/transpose/12660"
+  input: "tensor_63_odule/model/15/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "30"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_62_id_119847_module/model/15/quant_input_0/aten__transpose  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_63_odule/model/15/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564731ae06d0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=24)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_66  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/slice/12666"
+  op: "Slice"
+  input: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12665"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "31"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_73_id_119788_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_74_id_119789_module/model/15/fused_scaled_dot_product_attention/aten__slice  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/transpose/12678"
+  op: "Transpose"
+  input: "module/model/15/reshape/12677"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "32"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Parameters"
+    value {
+      s: "permutation: (0,2,1,3)"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_98_id_119837_module/model/15/aten__view  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_99_id_119839_module/model/15/aten__transpose  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "tensor_45_odule/model/15/quant_output/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_output/convert_from_fp8_bf16/12655"
+  op: "convert_from_fp8_bf16"
+  input: "module/model/15/quant_input_0/convert_to_fp8_bf16/12653"
+  input: "tensor_45_odule/model/15/quant_output/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "33"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_43  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_45_odule/model/15/quant_output/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d59e18, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=16)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_47  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  isPersistent  |  userMemorySection(type=Persistent, id=18)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_68_odule/model/15/quant_output/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/quant_output/convert_from_fp8_bf16/12663"
+  op: "convert_from_fp8_bf16"
+  input: "module/model/15/quant_input_0/convert_to_fp8_bf16/12661"
+  input: "tensor_68_odule/model/15/quant_output/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "34"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_66  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_68_odule/model/15/quant_output/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x5647358add28, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=25)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_70  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  isPersistent  |  userMemorySection(type=Persistent, id=27)  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/slice/12667"
+  op: "Slice"
+  input: "module/model/15/fused_scaled_dot_product_attention/slice/12666"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "35"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_74_id_119789_module/model/15/fused_scaled_dot_product_attention/aten__slice  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_75_id_119790_module/model/15/fused_scaled_dot_product_attention/aten__slice  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/rotary_pos_embedding_fwd_bf16/12679"
+  op: "rotary_pos_embedding_fwd_bf16"
+  input: "module/model/15/transpose/12678"
+  input: "module/model/15/identity/12646"
+  input: "module/model/15/identity/12640"
+  input: "module/model/15/expand_dims/12674"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "36"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_99_id_119839_module/model/15/aten__transpose  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_20_id_119883_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_13_id_119877_module/model/15/aten__clone  |  Sizes = [1,1,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4096, 4096, 4096, 256, 2]  |  data = 0, sizeInBytes = 4096  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_88_id_119786_module/model/15/aten__unsqueeze  |  Sizes = [1,16]  |  int32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_101  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/broadcast/12668"
+  op: "Broadcast"
+  input: "module/model/15/fused_scaled_dot_product_attention/slice/12667"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "37"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_75_id_119790_module/model/15/fused_scaled_dot_product_attention/aten__slice  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_76_id_119791_module/model/15/fused_scaled_dot_product_attention/hpu__expand  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12669"
+  op: "ExpandDims"
+  input: "module/model/15/fused_scaled_dot_product_attention/broadcast/12668"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "38"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_76_id_119791_module/model/15/fused_scaled_dot_product_attention/hpu__expand  |  Sizes = [1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_77_id_119958_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+}
+node {
+  name: "tensor_78_odule/model/15/fused_scaled_dot_product_attention/quant_v/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/quant_v/convert_to_fp8_bf16/12670"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/quant_output/convert_from_fp8_bf16/12663"
+  input: "tensor_78_odule/model/15/fused_scaled_dot_product_attention/quant_v/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "39"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_70  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  isPersistent  |  userMemorySection(type=Persistent, id=27)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_78_odule/model/15/fused_scaled_dot_product_attention/quant_v/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d599f0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=29)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_81  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/reshape/12671"
+  op: "Reshape"
+  input: "module/model/15/fused_scaled_dot_product_attention/quant_v/convert_to_fp8_bf16/12670"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "40"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_81  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_82_id_119956_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,1,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "tensor_83_odule/model/15/fused_scaled_dot_product_attention/quant_k/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/quant_k/convert_to_fp8_bf16/12672"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/quant_output/convert_from_fp8_bf16/12655"
+  input: "tensor_83_odule/model/15/fused_scaled_dot_product_attention/quant_k/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "41"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_47  |  Sizes = [1,8,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [32768, 32768, 4096, 256, 2]  |  data = 0, sizeInBytes = 32768  |  isPersistent  |  userMemorySection(type=Persistent, id=18)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_83_odule/model/15/fused_scaled_dot_product_attention/quant_k/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x56473610a758, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=30)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_86  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/reshape/12673"
+  op: "Reshape"
+  input: "module/model/15/fused_scaled_dot_product_attention/quant_k/convert_to_fp8_bf16/12672"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "42"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_86  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_87_id_119954_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,1,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+}
+node {
+  name: "tensor_102_odule/model/15/fused_scaled_dot_product_attention/quant_q/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/quant_q/convert_to_fp8_bf16/12680"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/rotary_pos_embedding_fwd_bf16/12679"
+  input: "tensor_102_odule/model/15/fused_scaled_dot_product_attention/quant_q/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "43"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_101  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_102_odule/model/15/fused_scaled_dot_product_attention/quant_q/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d59898, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=35)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_105  |  Sizes = [1,32,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/reshape/12681"
+  op: "Reshape"
+  input: "module/model/15/fused_scaled_dot_product_attention/quant_q/convert_to_fp8_bf16/12680"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "44"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_105  |  Sizes = [1,32,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_106_id_119952_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,4,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 8192, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_107_odule/model/15/fused_scaled_dot_product_attention/placeholder/4"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_108_odule/model/15/fused_scaled_dot_product_attention/placeholder/5"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_109_odule/model/15/fused_scaled_dot_product_attention/placeholder/6"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_110_odule/model/15/fused_scaled_dot_product_attention/placeholder/7"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_111_odule/model/15/fused_scaled_dot_product_attention/placeholder/8"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_112_odule/model/15/fused_scaled_dot_product_attention/placeholder/9"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/sdpa_recomp_fwd_hf8/12682"
+  op: "sdpa_recomp_fwd_hf8"
+  input: "module/model/15/fused_scaled_dot_product_attention/reshape/12681"
+  input: "module/model/15/fused_scaled_dot_product_attention/reshape/12673"
+  input: "module/model/15/fused_scaled_dot_product_attention/reshape/12671"
+  input: "module/model/15/fused_scaled_dot_product_attention/expand_dims/12669"
+  input: "unused_port"
+  input: "tensor_107_odule/model/15/fused_scaled_dot_product_attention/placeholder/4"
+  input: "tensor_108_odule/model/15/fused_scaled_dot_product_attention/placeholder/5"
+  input: "tensor_109_odule/model/15/fused_scaled_dot_product_attention/placeholder/6"
+  input: "tensor_110_odule/model/15/fused_scaled_dot_product_attention/placeholder/7"
+  input: "tensor_111_odule/model/15/fused_scaled_dot_product_attention/placeholder/8"
+  input: "tensor_112_odule/model/15/fused_scaled_dot_product_attention/placeholder/9"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "45"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:00"
+    value {
+      s: "tensor_106_id_119952_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,4,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 8192, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:01"
+    value {
+      s: "tensor_87_id_119954_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,1,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:02"
+    value {
+      s: "tensor_82_id_119956_module/model/15/fused_scaled_dot_product_attention/aten__view  |  Sizes = [1,8,1,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:03"
+    value {
+      s: "tensor_77_id_119958_module/model/15/fused_scaled_dot_product_attention/aten__unsqueeze  |  Sizes = [1,1,1,16,16]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [512, 512, 512, 512, 32, 2]  |  data = 0, sizeInBytes = 512  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:05"
+    value {
+      s: "tensor_107_odule/model/15/fused_scaled_dot_product_attention/placeholder/4  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564737383ee0, sizeInBytes = 4  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=36)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:06"
+    value {
+      s: "tensor_108_odule/model/15/fused_scaled_dot_product_attention/placeholder/5  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564736b75fe8, sizeInBytes = 4  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=37)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:07"
+    value {
+      s: "tensor_109_odule/model/15/fused_scaled_dot_product_attention/placeholder/6  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564734355670, sizeInBytes = 4  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=38)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:08"
+    value {
+      s: "tensor_110_odule/model/15/fused_scaled_dot_product_attention/placeholder/7  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564734355940, sizeInBytes = 4  |  buffer = 16  |  isPersistent  |  userMemorySection(type=Persistent, id=39)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:09"
+    value {
+      s: "tensor_111_odule/model/15/fused_scaled_dot_product_attention/placeholder/8  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564736343ec0, sizeInBytes = 4  |  buffer = 16  |  isPersistent  |  userMemorySection(type=Persistent, id=40)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:10"
+    value {
+      s: "tensor_112_odule/model/15/fused_scaled_dot_product_attention/placeholder/9  |  Sizes = [1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [4, 4]  |  data = 0x564731ae0528, sizeInBytes = 4  |  buffer = 0.0625  |  isPersistent  |  userMemorySection(type=Persistent, id=41)  |  isStaticParam  |  bufferDtype=float32  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_118  |  Sizes = [1,8,4,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 8192, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/dequant_output/reshape/12683"
+  op: "Reshape"
+  input: "module/model/15/fused_scaled_dot_product_attention/sdpa_recomp_fwd_hf8/12682"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "46"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_118  |  Sizes = [1,8,4,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 8192, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_119_id_119977_module/model/15/fused_scaled_dot_product_attention/dequant_output/aten__view  |  Sizes = [1,32,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_120_odule/model/15/fused_scaled_dot_product_attention/dequant_output/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/fused_scaled_dot_product_attention/dequant_output/convert_from_fp8_bf16/12684"
+  op: "convert_from_fp8_bf16"
+  input: "module/model/15/fused_scaled_dot_product_attention/dequant_output/reshape/12683"
+  input: "tensor_120_odule/model/15/fused_scaled_dot_product_attention/dequant_output/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "47"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_119_id_119977_module/model/15/fused_scaled_dot_product_attention/dequant_output/aten__view  |  Sizes = [1,32,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 2048, 128, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_120_odule/model/15/fused_scaled_dot_product_attention/dequant_output/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564731ac4838, sizeInBytes = 2  |  buffer = 0.0625  |  isPersistent  |  userMemorySection(type=Persistent, id=42)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_122  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/transpose/12685"
+  op: "Transpose"
+  input: "module/model/15/fused_scaled_dot_product_attention/dequant_output/convert_from_fp8_bf16/12684"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "48"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Parameters"
+    value {
+      s: "permutation: (0,2,1,3)"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_122  |  Sizes = [1,32,16,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 4096, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_123_id_119982_module/model/15/aten__transpose  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/identity/12686"
+  op: "Identity"
+  input: "module/model/15/transpose/12685"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "49"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_123_id_119982_module/model/15/aten__transpose  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_124_id_119984_module/model/15/aten__clone  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/o_proj/quant_input_0/reshape/12687"
+  op: "Reshape"
+  input: "module/model/15/identity/12686"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "50"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_124_id_119984_module/model/15/aten__clone  |  Sizes = [1,16,32,128]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 256, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_125_id_119987_module/model/15/o_proj/quant_input_0/aten__view  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "tensor_126_odule/model/15/o_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/o_proj/quant_input_0/convert_to_fp8_bf16/12688"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/o_proj/quant_input_0/reshape/12687"
+  input: "tensor_126_odule/model/15/o_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "51"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_125_id_119987_module/model/15/o_proj/quant_input_0/aten__view  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_126_odule/model/15/o_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564734372a08, sizeInBytes = 2  |  buffer = 16  |  isPersistent  |  userMemorySection(type=Persistent, id=43)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_129  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_130_odule/model/15/o_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_131_odule/model/15/o_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_132_odule/model/15/o_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/o_proj/fp8_gemm_bf16/12689"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/o_proj/quant_input_0/convert_to_fp8_bf16/12688"
+  input: "tensor_130_odule/model/15/o_proj/placeholder/1"
+  input: "tensor_131_odule/model/15/o_proj/placeholder/2"
+  input: "tensor_132_odule/model/15/o_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "52"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_129  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_130_odule/model/15/o_proj/placeholder/1  |  Sizes = [4096,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16777216, 4096, 1]  |  data = 0, sizeInBytes = 16777216  |  isPersistent  |  userMemorySection(type=Persistent, id=44)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_131_odule/model/15/o_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564737383c00, sizeInBytes = 2  |  buffer = 0.0625  |  isPersistent  |  userMemorySection(type=Persistent, id=45)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_132_odule/model/15/o_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736d59a10, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=46)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_134  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/add_fwd_bf16/12690"
+  op: "add_fwd_bf16"
+  input: "tensor_21_odule/model/15/input_layernorm/placeholder/0"
+  input: "module/model/15/o_proj/fp8_gemm_bf16/12689"
+  input: "^module/model/15/input_layernorm/rms_norm_ex_fwd_bf16/12647"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "53"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_21_odule/model/15/input_layernorm/placeholder/0  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_134  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_135  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_136_odule/model/15/post_attention_layernorm/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/post_attention_layernorm/rms_norm_ex_fwd_bf16/12691"
+  op: "rms_norm_ex_fwd_bf16"
+  input: "module/model/15/add_fwd_bf16/12690"
+  input: "tensor_136_odule/model/15/post_attention_layernorm/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "54"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_135  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_136_odule/model/15/post_attention_layernorm/placeholder/1  |  Sizes = [4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [8192, 2]  |  data = 0, sizeInBytes = 8192  |  isPersistent  |  userMemorySection(type=Persistent, id=47)  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_139  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:1"
+    value {
+      s: "tensor_140  |  Sizes = [1,16,1]  |  float32  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [64, 64, 4, 4]  |  data = 0, sizeInBytes = 64  |  "
+    }
+  }
+}
+node {
+  name: "tensor_140"
+  op: "OutputTensor"
+  input: "module/model/15/post_attention_layernorm/rms_norm_ex_fwd_bf16/12691"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "float32"
+    }
+  }
+}
+node {
+  name: "tensor_150_odule/model/15/gate_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/gate_proj/quant_input_0/convert_to_fp8_bf16/12694"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/post_attention_layernorm/rms_norm_ex_fwd_bf16/12691"
+  input: "tensor_150_odule/model/15/gate_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "55"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_139  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_150_odule/model/15/gate_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc45a0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=52)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_153  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_141_odule/model/15/up_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/up_proj/quant_input_0/convert_to_fp8_bf16/12692"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/post_attention_layernorm/rms_norm_ex_fwd_bf16/12691"
+  input: "tensor_141_odule/model/15/up_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "56"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_139  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_141_odule/model/15/up_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564737383f20, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=48)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_144  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+}
+node {
+  name: "tensor_154_odule/model/15/gate_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 14336
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_155_odule/model/15/gate_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_156_odule/model/15/gate_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/gate_proj/fp8_gemm_bf16/12695"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/gate_proj/quant_input_0/convert_to_fp8_bf16/12694"
+  input: "tensor_154_odule/model/15/gate_proj/placeholder/1"
+  input: "tensor_155_odule/model/15/gate_proj/placeholder/2"
+  input: "tensor_156_odule/model/15/gate_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "57"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_153  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_154_odule/model/15/gate_proj/placeholder/1  |  Sizes = [4096,14336]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [58720256, 14336, 1]  |  data = 0, sizeInBytes = 58720256  |  isPersistent  |  userMemorySection(type=Persistent, id=53)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_155_odule/model/15/gate_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc45d0, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=54)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_156_odule/model/15/gate_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc45c8, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=55)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_158  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+}
+node {
+  name: "tensor_145_odule/model/15/up_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 14336
+        }
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_146_odule/model/15/up_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_147_odule/model/15/up_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/up_proj/fp8_gemm_bf16/12693"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/up_proj/quant_input_0/convert_to_fp8_bf16/12692"
+  input: "tensor_145_odule/model/15/up_proj/placeholder/1"
+  input: "tensor_146_odule/model/15/up_proj/placeholder/2"
+  input: "tensor_147_odule/model/15/up_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "58"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_144  |  Sizes = [1,16,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [65536, 65536, 4096, 1]  |  data = 0, sizeInBytes = 65536  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_145_odule/model/15/up_proj/placeholder/1  |  Sizes = [4096,14336]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [58720256, 14336, 1]  |  data = 0, sizeInBytes = 58720256  |  isPersistent  |  userMemorySection(type=Persistent, id=49)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_146_odule/model/15/up_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc4438, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=50)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_147_odule/model/15/up_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564734372968, sizeInBytes = 2  |  buffer = 0.00390625  |  isPersistent  |  userMemorySection(type=Persistent, id=51)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_149  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/act_fn/silu_fwd_bf16/12696"
+  op: "silu_fwd_bf16"
+  input: "module/model/15/gate_proj/fp8_gemm_bf16/12695"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "59"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_158  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_159_id_120021_module/model/15/act_fn/aten__silu  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/mult_fwd_bf16/12697"
+  op: "mult_fwd_bf16"
+  input: "module/model/15/act_fn/silu_fwd_bf16/12696"
+  input: "module/model/15/up_proj/fp8_gemm_bf16/12693"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "60"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_159_id_120021_module/model/15/act_fn/aten__silu  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_149  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_160_id_120036_module/model/15/aten__mul  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+}
+node {
+  name: "tensor_161_odule/model/15/down_proj/quant_input_0/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/down_proj/quant_input_0/convert_to_fp8_bf16/12698"
+  op: "convert_to_fp8_bf16"
+  input: "module/model/15/mult_fwd_bf16/12697"
+  input: "tensor_161_odule/model/15/down_proj/quant_input_0/placeholder/1"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "61"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_160_id_120036_module/model/15/aten__mul  |  Sizes = [1,16,14336]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [458752, 458752, 28672, 2]  |  data = 0, sizeInBytes = 458752  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_161_odule/model/15/down_proj/quant_input_0/placeholder/1  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc4638, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=56)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_164  |  Sizes = [1,16,14336]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [229376, 229376, 14336, 1]  |  data = 0, sizeInBytes = 229376  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/constant_hf8/12633"
+  op: "constant_hf8"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "62"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_2  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  isPersistent  |  userMemorySection(type=Persistent, id=4)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_2"
+  op: "OutputTensor"
+  input: "module/model/15/constant_hf8/12633"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 8
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "module/model/15/constant_hf8/12656"
+  op: "constant_hf8"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "63"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_50  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  isPersistent  |  userMemorySection(type=Persistent, id=19)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_50"
+  op: "OutputTensor"
+  input: "module/model/15/constant_hf8/12656"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 8
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_165_odule/model/15/down_proj/placeholder/1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 14336
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "tensor_166_odule/model/15/down_proj/placeholder/2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "tensor_167_odule/model/15/down_proj/placeholder/3"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
+node {
+  name: "module/model/15/down_proj/fp8_gemm_bf16/12699"
+  op: "fp8_gemm_bf16"
+  input: "module/model/15/down_proj/quant_input_0/convert_to_fp8_bf16/12698"
+  input: "tensor_165_odule/model/15/down_proj/placeholder/1"
+  input: "tensor_166_odule/model/15/down_proj/placeholder/2"
+  input: "tensor_167_odule/model/15/down_proj/placeholder/3"
+  input: "unused_port"
+  input: "unused_port"
+  input: "unused_port"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "64"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_164  |  Sizes = [1,16,14336]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [229376, 229376, 14336, 1]  |  data = 0, sizeInBytes = 229376  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_165_odule/model/15/down_proj/placeholder/1  |  Sizes = [14336,4096]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [58720256, 4096, 1]  |  data = 0, sizeInBytes = 58720256  |  isPersistent  |  userMemorySection(type=Persistent, id=57)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:2"
+    value {
+      s: "tensor_166_odule/model/15/down_proj/placeholder/2  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc4668, sizeInBytes = 2  |  buffer = 1  |  isPersistent  |  userMemorySection(type=Persistent, id=58)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:3"
+    value {
+      s: "tensor_167_odule/model/15/down_proj/placeholder/3  |  Sizes = [1]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [2, 2]  |  data = 0x564736fc4660, sizeInBytes = 2  |  buffer = 0.0625  |  isPersistent  |  userMemorySection(type=Persistent, id=59)  |  isStaticParam  |  bufferDtype=bf16  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_169  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+}
+node {
+  name: "module/model/15/memcpy/12654"
+  op: "Memcpy"
+  input: "module/model/15/quant_input_0/convert_to_fp8_bf16/12653"
+  input: "^module/model/15/constant_hf8/12633"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "65"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_43  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_44  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  isPersistent  |  userMemorySection(type=Persistent, id=4)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_44"
+  op: "OutputTensor"
+  input: "module/model/15/memcpy/12654"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 8
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "module/model/15/memcpy/12662"
+  op: "Memcpy"
+  input: "module/model/15/quant_input_0/convert_to_fp8_bf16/12661"
+  input: "^module/model/15/constant_hf8/12656"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "66"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_66  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_67  |  Sizes = [1,8,16,128]  |  hfloat8  |  expBias = 7, scale = 1  |    |  ModelParam = 0  |  strides = [16384, 16384, 2048, 128, 1]  |  data = 0, sizeInBytes = 16384  |  isPersistent  |  userMemorySection(type=Persistent, id=19)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_67"
+  op: "OutputTensor"
+  input: "module/model/15/memcpy/12662"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INVALID
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 128
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 8
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "hfloat8"
+    }
+  }
+}
+node {
+  name: "module/model/15/add_fwd_bf16/12700"
+  op: "add_fwd_bf16"
+  input: "module/model/15/add_fwd_bf16/12690"
+  input: "module/model/15/down_proj/fp8_gemm_bf16/12699"
+  input: "^module/model/15/post_attention_layernorm/rms_norm_ex_fwd_bf16/12691"
+  attr {
+    key: "Bundle_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "Exec_idx"
+    value {
+      s: "67"
+    }
+  }
+  attr {
+    key: "Op_idx"
+    value {
+      s: "N/A"
+    }
+  }
+  attr {
+    key: "inputTensor:0"
+    value {
+      s: "tensor_135  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+  attr {
+    key: "inputTensor:1"
+    value {
+      s: "tensor_169  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  "
+    }
+  }
+  attr {
+    key: "outputTensor:0"
+    value {
+      s: "tensor_170  |  Sizes = [1,16,4096]  |  bf16  |  expBias = 0, scale = 1  |    |  ModelParam = 0  |  strides = [131072, 131072, 8192, 2]  |  data = 0, sizeInBytes = 131072  |  isPersistent  |  userMemorySection(type=Persistent, id=9)  |  "
+    }
+  }
+}
+node {
+  name: "tensor_170"
+  op: "OutputTensor"
+  input: "module/model/15/add_fwd_bf16/12700"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4096
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+        dim {
+          size: 1
+        }
+      }
+    }
+  }
+  attr {
+    key: "synDataType"
+    value {
+      s: "bf16"
+    }
+  }
+}
