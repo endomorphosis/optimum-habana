@@ -1,0 +1,108 @@
+{
+  "results": {
+    "hellaswag": {
+      "acc": 0.6041625174268074,
+      "acc_stderr": 0.004880303863138502,
+      "acc_norm": 0.7879904401513643,
+      "acc_norm_stderr": 0.004078962503408514
+    },
+    "lambada_openai": {
+      "ppl": 3.2668993021360873,
+      "ppl_stderr": 0.06201463886033744,
+      "acc": 0.7382107510188239,
+      "acc_stderr": 0.006124606054308013
+    },
+    "piqa": {
+      "acc": 0.7883569096844396,
+      "acc_stderr": 0.009530351270479402,
+      "acc_norm": 0.8035908596300326,
+      "acc_norm_stderr": 0.009269232237679927
+    },
+    "winogrande": {
+      "acc": 0.728492501973165,
+      "acc_stderr": 0.012499326254893127
+    }
+  },
+  "versions": {
+    "hellaswag": 0,
+    "lambada_openai": 0,
+    "piqa": 0,
+    "winogrande": 0
+  },
+  "args": {
+    "buckets": [
+      16,
+      32,
+      64,
+      128,
+      189,
+      284
+    ],
+    "output_file": "llama_3-1_8b_bs1_quant.txt",
+    "tasks": [
+      "hellaswag",
+      "lambada_openai",
+      "piqa",
+      "winogrande"
+    ],
+    "limit_iters": null,
+    "device": "hpu",
+    "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B",
+    "bf16": true,
+    "max_new_tokens": 100,
+    "max_input_tokens": 0,
+    "batch_size": 1,
+    "warmup": 3,
+    "n_iterations": 5,
+    "local_rank": 0,
+    "use_kv_cache": true,
+    "use_hpu_graphs": true,
+    "dataset_name": null,
+    "column_name": null,
+    "do_sample": false,
+    "num_beams": 1,
+    "top_k": null,
+    "penalty_alpha": null,
+    "trim_logits": true,
+    "seed": 27,
+    "profiling_warmup_steps": 0,
+    "profiling_steps": 0,
+    "profiling_record_shapes": false,
+    "prompt": null,
+    "bad_words": null,
+    "force_words": null,
+    "assistant_model": null,
+    "peft_model": null,
+    "num_return_sequences": 1,
+    "token": null,
+    "model_revision": "main",
+    "attn_softmax_bf16": true,
+    "output_dir": null,
+    "bucket_size": 128,
+    "bucket_internal": true,
+    "dataset_max_samples": -1,
+    "limit_hpu_graphs": false,
+    "reuse_cache": false,
+    "verbose_workers": false,
+    "simulate_dyn_prompt": null,
+    "reduce_recompile": false,
+    "use_flash_attention": true,
+    "flash_attention_recompute": true,
+    "flash_attention_causal_mask": false,
+    "flash_attention_fast_softmax": true,
+    "book_source": false,
+    "torch_compile": false,
+    "ignore_eos": true,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "const_serialization_path": null,
+    "disk_offload": false,
+    "trust_remote_code": false,
+    "load_quantized_model": false,
+    "parallel_strategy": "none",
+    "quant_config": "./quantization_config/maxabs_quant.json",
+    "world_size": 2,
+    "global_rank": 0
+  },
+  "duration": 1891.014895817032
+}
