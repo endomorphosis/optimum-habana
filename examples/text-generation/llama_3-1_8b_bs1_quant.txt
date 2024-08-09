@@ -104,5 +104,5 @@
     "world_size": 2,
     "global_rank": 0
   },
-  "duration": 1891.014895817032
+  "duration": 1892.295534138102
 }
